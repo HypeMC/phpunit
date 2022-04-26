@@ -20,14 +20,21 @@ use Attribute;
 final class TestWithJson
 {
     private readonly string $json;
+    private readonly ?string $name;
 
-    public function __construct(string $json)
+    public function __construct(string $json, ?string $name = null)
     {
         $this->json = $json;
+        $this->name = $name;
     }
 
     public function json(): string
     {
         return $this->json;
+    }
+
+    public function name(): ?string
+    {
+        return $this->name;
     }
 }

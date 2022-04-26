@@ -20,14 +20,21 @@ use Attribute;
 final class TestWith
 {
     private readonly array $data;
+    private readonly ?string $name;
 
-    public function __construct(array $data)
+    public function __construct(array $data, ?string $name = null)
     {
         $this->data = $data;
+        $this->name = $name;
     }
 
     public function data(): array
     {
         return $this->data;
+    }
+
+    public function name(): ?string
+    {
+        return $this->name;
     }
 }

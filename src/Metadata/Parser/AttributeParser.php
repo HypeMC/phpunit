@@ -489,12 +489,15 @@ final class AttributeParser implements Parser
                     break;
 
                 case TestWith::class:
-                    $result[] = Metadata::testWith($attributeInstance->data());
+                    $result[] = Metadata::testWith($attributeInstance->data(), $attributeInstance->name());
 
                     break;
 
                 case TestWithJson::class:
-                    $result[] = Metadata::testWith(json_decode($attributeInstance->json(), true, 512, JSON_THROW_ON_ERROR));
+                    $result[] = Metadata::testWith(
+                        json_decode($attributeInstance->json(), true, 512, JSON_THROW_ON_ERROR),
+                        $attributeInstance->name()
+                    );
 
                     break;
 

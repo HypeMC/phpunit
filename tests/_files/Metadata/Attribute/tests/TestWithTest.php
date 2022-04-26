@@ -20,8 +20,18 @@ final class TestWithTest extends TestCase
     {
     }
 
+    #[TestWith([1, 2, 3], 'Name1')]
+    public function testOneWithName(): void
+    {
+    }
+
     #[TestWithJson('[1, 2, 3]')]
     public function testTwo(): void
+    {
+    }
+
+    #[TestWithJson('[1, 2, 3]', 'Name2')]
+    public function testTwoWithName(): void
     {
     }
 }

@@ -17,12 +17,14 @@ namespace PHPUnit\Metadata;
 final class TestWith extends Metadata
 {
     private readonly array $data;
+    private readonly ?string $name;
 
-    protected function __construct(int $level, array $data)
+    protected function __construct(int $level, array $data, ?string $name = null)
     {
         parent::__construct($level);
 
         $this->data = $data;
+        $this->name = $name;
     }
 
     public function isTestWith(): bool
@@ -33,5 +35,10 @@ final class TestWith extends Metadata
     public function data(): array
     {
         return $this->data;
+    }
+
+    public function name(): ?string
+    {
+        return $this->name;
     }
 }
